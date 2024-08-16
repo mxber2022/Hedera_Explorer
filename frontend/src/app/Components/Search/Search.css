@@ -1,3 +1,80 @@
-.Search {  
-    color: black;
+.Search {
+    padding: 6rem 0;
+    background-color: #dfdfdf;
+    color: #fff;
+}
+
+.Search__container {
+
+    max-width: 1600px;
+    padding: 0 2rem;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; 
+}
+
+.search_btn {
+    padding-left: 15px;
+}
+
+.search_btn button {
+    padding: 13px 25px;
+    background-color: #e63946; /* Red background */
+    color: #f1faee; /* White text color */
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    border: 2px solid #e63946; /* Red border to match the background */
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search_btn button:hover {
+    background-color: #d62839; /* Slightly darker red on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.search_btn button:focus {
+    background-color: #c72c41; /* Even darker red on focus */
+    border-color: #f1faee; /* White border on focus */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.nav__search input {
+    width: 500px;
+    padding: 13px 15px;
+    border: 2px solid #f1faee; /* White border */
+    border-radius: 10px;
+    font-size: 16px;
+    background-color:  #fff; /* Black background */
+    color: #f1faee; /* White text color */
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav__search input::placeholder {
+    color: #a8dadc;
+    font-style: italic;
+}
+
+.nav__search input:hover {
+    background-color:  #fff; /* Slightly lighter black on hover */
+    color: #f1faee;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-color: #f1faee; /* Keep border white on hover */
+}
+
+.nav__search input:focus {
+    background-color: #fff; /* Deep blue background on focus */
+    color: #f1faee;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-color: #e63946; /* Red border on focus */
+    transform: scale(1.05);
 }

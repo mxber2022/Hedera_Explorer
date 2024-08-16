@@ -1,25 +1,23 @@
-"use client"
+"use client";
 import "./Nav.css";
 
 function Nav() {
-    return(
+    return (
         <nav className="nav">
             <div className="nav__container">
                 <div className="nav__left">
                     <div className="nav__logo">
                         HederaScan
-                        {/* <img src="" alt="" /> */}
-                    </div>
-                    <div className="nav__search">
-                        {/* <input type="text" typeof="search" placeholder="Search markets ..." /> */}
                     </div>
                 </div>
                 <div className="nav__right">
-                    {/* <w3m-button /> */}
+                    <div className="nav__right-content">
+                        {/* Future elements or buttons go here */}
+                    </div>
                 </div>
             </div>
         </nav>
-    )
+    );
 }
 
 export default Nav;
