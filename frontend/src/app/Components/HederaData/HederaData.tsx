@@ -8,24 +8,24 @@ function HederaData() {
 
     async function fetchHBARstatistics() {
         
-        const response = await fetch(`https://pro-api.coinmarketcap.com/v1/blockchain/statistics/latest?symbol=HBAR`, // Replace with actual API endpoint
-          {
-            //@ts-ignore
-            headers: {
-              'X-CMC_PRO_API_KEY': process.env.NEXT_PUBLIC_CMC,
-              'Content-Type': 'application/json'
-            },
-          }
-        );
+        // const response = await fetch(`https://pro-api.coinmarketcap.com/v1/blockchain/statistics/latest?symbol=HBAR`, // Replace with actual API endpoint
+        //   {
+        //     //@ts-ignore
+        //     headers: {
+        //       'X-CMC_PRO_API_KEY': process.env.NEXT_PUBLIC_CMC,
+        //       'Content-Type': 'application/json'
+        //     },
+        //   }
+        // );
       
-        if (!response.ok) {
-            console.log(process.env.NEXT_PUBLIC_CMC);
-          throw new Error('Failed to fetch blockchain statistics');
-        }
+        // if (!response.ok) {
+        //     console.log(process.env.NEXT_PUBLIC_CMC);
+        //   throw new Error('Failed to fetch blockchain statistics');
+        // }
       
-        const data = await response.json();
-        setHBARstatistics(data);
-        return data;
+        // const data = await response.json();
+        // setHBARstatistics(data);
+        // return data;
     }
 
     useEffect(() => {
