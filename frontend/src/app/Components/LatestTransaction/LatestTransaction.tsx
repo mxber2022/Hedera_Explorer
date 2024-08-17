@@ -23,12 +23,10 @@ function LatestTransaction() {
         }
     }
 
-    // Fetch data when the component mounts
     useEffect(() => {
         fetchAccountInfo();
-    }, []); // Empty dependency array means this effect runs once when the component mounts
+    }, []); 
 
-    // Extract specific fields from the transaction data
     const extractFields = (data :any) => {
         if (!data || !data.transactions || data.transactions.length === 0) return [];
         //@ts-ignore
