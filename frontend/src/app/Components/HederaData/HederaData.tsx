@@ -75,11 +75,11 @@ function HederaData() {
             {HBARstatistics && supplyData ? (
                 <div>
                     <h2>Latest HBAR Price</h2>
-                    <p>
+                    {/* <p>
                         Price: {parseFloat(HBARstatistics.parsed[0].price.price) * Math.pow(10, HBARstatistics.parsed[0].price.expo)} USD
-                    </p>
+                    </p> */}
                     <p>
-                        EMA Price: {parseFloat(HBARstatistics.parsed[0].ema_price.price) * Math.pow(10, HBARstatistics.parsed[0].ema_price.expo)} USD
+                        Price: {parseFloat(HBARstatistics.parsed[0].ema_price.price) * Math.pow(10, HBARstatistics.parsed[0].ema_price.expo)} USD
                     </p>
                     <p>
                         Market Cap: {(parseFloat(HBARstatistics.parsed[0].price.price) * Math.pow(10, HBARstatistics.parsed[0].price.expo) * parseFloat(supplyData.released_supply) / Math.pow(10, 8)).toLocaleString()} USD
