@@ -60,3 +60,7 @@
     border-bottom: 1px solid #e63946;
     padding-bottom: 1rem;
 }
+
+.notransfer {
+    margin-bottom: 10px !important;
+}

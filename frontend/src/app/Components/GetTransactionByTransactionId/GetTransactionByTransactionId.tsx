@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useRef } from 'react';
+import "./GetTransactionByTransactionId.css"
 
 interface Transfer {
     account: string;
@@ -85,7 +86,9 @@ const GetTransactionByTransactionId: React.FC<GetTransactionByTransactionIdProps
                 </div>
                     <ul className="transaction-list">
                         {transaction.transfers.length > 0 ? (
+                            
                             transaction.transfers.map((transfer, transferIndex) => (
+                                <>
                                 <li key={transferIndex} className="transaction-item">
                                     <div className="transaction-info">
                                     <p><strong></strong> {transfer.account}</p>
@@ -93,9 +96,14 @@ const GetTransactionByTransactionId: React.FC<GetTransactionByTransactionIdProps
                                     <p><strong></strong> {transfer.is_approval ? 'Yes' : 'No'}</p>
                                     </div>
                                 </li>
+                               
+                               </>
                             ))
                         ) : (
-                            <p>No transfers available.</p>
+                            <div className='notransfer'>
+                                {/* <p>No transfers available.</p> */}
+                            </div>
+                            
                         )}
                     </ul>
                     
