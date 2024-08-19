@@ -1,10 +1,13 @@
-.Search {
+.search {
     padding: 6rem 0;
-    background-color: #dfdfdf;
+    background-color: #000;
     color: #fff;
+    height: 100%;
+    display: flex;
+    border-bottom: 1px solid #2BEB7C;
 }
 
-.Search__container {
+.search__container {
 
     max-width: 1600px;
     padding: 0 2rem;
@@ -12,10 +15,47 @@
     margin: 0 auto;
     display: flex;
     justify-content: center; 
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 7rem;
+    margin-top: 15rem;
+}
+
+.search__text {
+
+    width: 100%;
+    max-width: 700px;
+}
+
+.search__text h1 {
+
+    color: #fff;
+    text-align: left;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.search__text p {
+
+    color: #fff;
+    padding: 0;
+    text-align: left;
+}
+
+.search__top {
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 700px;
 }
 
 .search_btn {
-    padding-left: 15px;
+
 }
 
 .search_btn button {
@@ -30,12 +70,12 @@
     outline: none;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0;
 }
 
 .search_btn button:hover {
     background-color: #d62839; /* Slightly darker red on hover */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
 }
 
 .search_btn button:focus {
@@ -46,17 +86,20 @@
 
 
 .nav__search input {
-    width: 500px;
+    max-width: 600px;
+    min-width: 500px;
+    width: 100%;
     padding: 13px 15px;
     border: 2px solid #f1faee; /* White border */
     border-radius: 10px;
     font-size: 16px;
     background-color:  #fff; /* Black background */
-    color: #2f7a16; /* White text color */
+    color: #000; /* White text color */
     font-family: 'Montserrat', sans-serif;
     outline: none;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0;
 }
 
 .nav__search input::placeholder {
@@ -64,50 +107,55 @@
     font-style: italic;
 }
 
-.nav__search input:hover {
-    background-color:  #fff; /* Slightly lighter black on hover */
-    color: #f1faee;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-color: #f1faee; /* Keep border white on hover */
-}
 
 .nav__search input:focus {
     background-color: #fff; /* Deep blue background on focus */
-    color: #f1faee;
+    color: #000;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     border-color: #e63946; /* Red border on focus */
-    transform: scale(1.05);
 }
 
 
+.search__results {
+
+    margin: 0 auto;
+    width: 100%;
+}
+
 .tabs {
     margin-top: 20px;
+    width: 100%;
 }
 
 .tab-buttons {
     display: flex;
-    border-bottom: 2px solid #ccc;
+    gap: 2rem;
 }
 
 .tab-buttons button {
     flex: 1;
     padding: 10px;
     border: none;
-    background: #f0f0f0;
+    background: transparent;
+    border: 1px solid #e63946;
     cursor: pointer;
     text-align: center;
+    border-radius: 12px;
+    outline: unset;
 }
 
 .tab-buttons button.active {
-    background: #fff;
-    border-bottom: 2px solid #007bff;
+    background: #e63946;
+    border-bottom: 2px solid #fff;
     font-weight: bold;
+    border: unset;
 }
 
 .tab-content {
     padding: 20px;
     border: 1px solid #ccc;
-    border-top: none;
+    border-radius: 12px;
+    margin-top: 2rem;
 }
 
 .transaction-tabs {
@@ -116,7 +164,7 @@
 
 .transaction-tab-buttons {
     display: flex;
-    border-bottom: 2px solid #ccc;
+    gap: 2rem;
 }
 
 .transaction-tab-buttons button {
@@ -126,12 +174,16 @@
     background: #f0f0f0;
     cursor: pointer;
     text-align: center;
+    background: transparent;
+    border: 1px solid #e63946;
+    border-radius: 12px;
 }
 
 .transaction-tab-buttons button.active {
-    background: #fff;
-    border-bottom: 2px solid #007bff;
+    background: #e63946;
+    border-bottom: 2px solid #fff;
     font-weight: bold;
+    border: unset;
 }
 
 .transaction-tab-content {
@@ -144,7 +196,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.75);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,7 +206,7 @@
 .modal-content {
     background: #0f0c0c;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     width: 80%;
     max-width: 600px;
     position: relative;
@@ -170,4 +222,109 @@
     border-radius: 4px;
     cursor: pointer;
     padding: 5px 10px;
+}
+
+
+
+.transaction-tab-content ul {
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+
+.transaction-tab-content ul li {
+
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    box-shadow: 0 0 20px #00fff74f;
+}
+
+.transaction-tab-content ul li p {
+
+    color: #fff;
+    text-align: left;
+}
+
+.tt_link {
+
+    color: #e63946 !important;
+    border-bottom: 1px solid #e63946;
+}
+
+.tab-content h2 {
+
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tab-content__card {
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.tab-content__card p{
+
+    color: #fff;
+    text-align: left;
+}
+
+.balance__content {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.balance__content p{
+
+    color: #fff;
+    text-align: left;
+}
+
+.modal-content {
+
+    box-shadow: 0 0 50px #00fff74f;
+}
+
+.modal-overlay h2 {
+
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal-overlay h3 {
+
+    padding-bottom: 1rem;
+    color: #e63946;
+    font-weight: bold;
+}
+
+.modal-overlay p {
+
+    text-align: left;
+    color: #fff;
+}
+
+.modal-overlay h4 {
+
+    margin-top: 2rem;
+    color: #e63946;
+    font-weight: bold;
+}
+
+.modal-overlay ul {
+
+    margin-top: 1rem;
 }

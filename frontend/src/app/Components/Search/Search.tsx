@@ -128,21 +128,28 @@ function Search() {
     };
 
     return (
-        <section className="Search">
-            <div className='Search__container'>
-                <div className="nav__search">
-                    <input
-                        onChange={handleInputChange}
-                        type="text"
-                        placeholder="Search by idOrAliasOrEvmAddress"
-                        value={inputValue}
-                    />
+        <section className="search">
+            <div className='search__container'>
+                {/* <div className="search__text">
+                    <h1>test lorem ipsum</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, eveniet?</p>
+                </div> */}
+                <div className="search__top">
+                    <div className="nav__search">
+                        <input
+                            onChange={handleInputChange}
+                            type="text"
+                            placeholder="Search by idOrAliasOrEvmAddress"
+                            value={inputValue}
+                        />
+                    </div>
+                    <div className="search_btn">
+                        <button onClick={searchData} disabled={loading}>
+                            {loading ? 'Searching...' : 'Search'}
+                        </button>
+                    </div>
                 </div>
-                <div className="search_btn">
-                    <button onClick={searchData} disabled={loading}>
-                        {loading ? 'Searching...' : 'Search'}
-                    </button>
-                </div>
+                <div className="search__results">
                 {error && <p className="error">{error}</p>}
                 {accountData && (
                     <div className="tabs">
@@ -155,17 +162,19 @@ function Search() {
                             {activeTab === 'details' && (
                                 <div>
                                     <h2>Account Details</h2>
-                                    <p><strong>Account ID:</strong> {accountData.account}</p>
-                                    <p><strong>Alias:</strong> {accountData.alias}</p>
-                                    <p><strong>Ethereum Nonce:</strong> {accountData.ethereum_nonce}</p>
-                                    <p><strong>EVM Address:</strong> {accountData.evm_address}</p>
-                                    <p><strong>Memo:</strong> {accountData.memo}</p>
-                                    <p><strong>Pending Reward:</strong> {accountData.pending_reward}</p>
-                                    <p><strong>Staked Node ID:</strong> {accountData.staked_node_id}</p>
+                                    <div className="tab-content__card">
+                                        <p><strong>Account ID:</strong> {accountData.account}</p>
+                                        <p><strong>Alias:</strong> {accountData.alias}</p>
+                                        <p><strong>Ethereum Nonce:</strong> {accountData.ethereum_nonce}</p>
+                                        <p><strong>EVM Address:</strong> {accountData.evm_address}</p>
+                                        <p><strong>Memo:</strong> {accountData.memo}</p>
+                                        <p><strong>Pending Reward:</strong> {accountData.pending_reward}</p>
+                                        <p><strong>Staked Node ID:</strong> {accountData.staked_node_id}</p>
+                                    </div>
                                 </div>
                             )}
                             {activeTab === 'balance' && (
-                                <div>
+                                <div className="balance__content">
                                     <h2>Balance</h2>
                                     <p><strong>Balance:</strong> {accountData.balance.balance}</p>
                                     <p><strong>Balance Timestamp:</strong> {accountData.balance.timestamp}</p>
@@ -192,7 +201,7 @@ function Search() {
                                                     {accountData.transactions.map((tx, index) => (
                                                         <li key={index}>
                                                             <h3>Transaction Name: {tx.name}</h3>
-                                                            <p onClick={() => handleTransactionClick(tx.transaction_id)} style={{ cursor: 'pointer', color: 'blue' }}>
+                                                            <p className="tt_link" onClick={() => handleTransactionClick(tx.transaction_id)} style={{ cursor: 'pointer'}}>
                                                                 <strong>Transaction ID:</strong> {tx.transaction_id}
                                                             </p>
                                                             <p><strong>Charged Fee:</strong> {tx.charged_tx_fee}</p>
@@ -249,6 +258,7 @@ function Search() {
                         </div>
                     </div>
                 )}
+                </div>
             </div>
         </section>
     );
