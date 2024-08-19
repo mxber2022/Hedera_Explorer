@@ -1,0 +1,66 @@
+/* Container for the entire toggle */
+.toggle {
+    width: 150px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    border-radius: 25px; /* Fully rounded edges */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Consistent shadow for depth */
+  }
+  
+  /* Button that slides inside the toggle */
+  .toggleButton {
+    width: 50%;
+    height: 40px;
+    background-color: #f31ee14f; /* Mainnet Color with transparency */
+    border-radius: 20px; /* Rounded edges for the sliding button */
+    position: absolute;
+    top: 5px; /* Center vertically within the container */
+    left: 4px; /* Start at the left edge */
+    transition: left 0.3s, background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Consistent shadow for the button */
+    opacity: 1; /* Fully opaque by default */
+  }
+  
+  /* Mainnet label */
+  .labelMainnet,
+  .labelTestnet {
+    padding-left: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    text-align: center;
+    font-weight: 600; /* Slightly bolder font */
+    font-size: 16px; /* Increased font size */
+    pointer-events: none;
+  }
+  
+  /* Specific styling for the Mainnet label */
+  .labelMainnet {
+    left: 0;
+    color: rgba(255, 255, 255, 0.9); /* White text with slight transparency */
+  }
+  
+  /* Specific styling for the Testnet label */
+  .labelTestnet {
+    right: 0;
+    color: rgba(200, 200, 200, 0.7); /* Light grey text with transparency when inactive */
+  }
+  
+  /* Active state of the toggle (Testnet selected) */
+  .active .toggleButton {
+    left: calc(55% - 3px); /* Move the button to the right side */
+    background-color: #f31ee14f; /* Testnet Color with transparency */
+  }
+  
+  .active .labelMainnet {
+    color: rgba(200, 200, 200, 0.7); /* Light grey Mainnet label when inactive */
+  }
+  
+  .active .labelTestnet {
+    color: rgba(255, 255, 255, 0.9); /* White text when Testnet is active */
+  }
+  
