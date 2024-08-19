@@ -1,0 +1,4 @@
+{
+    "TESTNET_API":"https://testnet.mirrornode.hedera.com",
+    "MAINNET_API":"https://mainnet.mirrornode.hedera.com"
+}

@@ -1,14 +1,17 @@
 "use client";
 import "./Nav.css";
+import { useNetwork } from '../NetworkContext/NetworkContext';
 import { useState } from "react";
 import styles from './NetworkToggle.module.css';
 
-function Nav() {
-    const [isMainnet, setIsMainnet] = useState(true);
 
-    const toggleNetwork = () => {
-      setIsMainnet(!isMainnet);
-    };
+function Nav() {
+   // const [isMainnet, setIsMainnet] = useState(true);
+   const { isMainnet, toggleNetwork } = useNetwork();
+
+    // const toggleNetwork = () => {
+    //   setIsMainnet(!isMainnet);
+    // };
     
     return (
         <nav className="nav">
@@ -23,8 +26,8 @@ function Nav() {
                     <div className="nav__right-content">
                         <div className={`${styles.toggle} ${isMainnet ? '' : styles.active}`} onClick={toggleNetwork}>
                             <div className={styles.toggleButton}></div>
-                            <div className={styles.labelMainnet}>Testnet</div>
-                            <div className={styles.labelTestnet}>Mainnet</div>
+                            <div className={styles.labelMainnet}>Mainnet</div>
+                            <div className={styles.labelTestnet}>Testnet</div>
                         </div>
                     </div>
                 </div>

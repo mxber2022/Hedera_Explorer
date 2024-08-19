@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "./Search.css";
 import GetTransactionByTransactionId from "../GetTransactionByTransactionId/GetTransactionByTransactionId";
+import { useNetwork } from '../NetworkContext/NetworkContext';
 
 interface Token {
     token_id: string;
@@ -68,6 +69,7 @@ interface AccountData {
 }
 
 function Search() {
+    const { isMainnet, toggleNetwork, apiEndpoint } = useNetwork();
     const [inputValue, setInputValue] = useState<string>("");
     const [accountData, setAccountData] = useState<AccountData | null>(null);
     const [error, setError] = useState<string | null>(null);
@@ -83,7 +85,7 @@ function Search() {
 
     async function fetchAccountInfo(idOrAliasOrEvmAddress: string): Promise<AccountData> {
         try {
-            const response = await fetch(`https://testnet.mirrornode.hedera.com/api/v1/accounts/${idOrAliasOrEvmAddress}`, {
+            const response = await fetch(`${apiEndpoint}/api/v1/accounts/${idOrAliasOrEvmAddress}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'

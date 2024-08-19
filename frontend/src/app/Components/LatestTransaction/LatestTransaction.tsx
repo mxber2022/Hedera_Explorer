@@ -1,15 +1,16 @@
 "use client"
 import { useState, useEffect } from 'react';
 import "./LatestTransaction.css";
+import { useNetwork } from '../NetworkContext/NetworkContext';
 
 function LatestTransaction() {
     // State to store transaction data
     const [transactionData, setTransactionData] = useState(null);
-
+    const { isMainnet, toggleNetwork, apiEndpoint } = useNetwork();
     // Function to fetch account information
     async function fetchAccountInfo() {
         try {
-            const response = await fetch(`https://testnet.mirrornode.hedera.com/api/v1/transactions`, {
+            const response = await fetch(`${apiEndpoint}/api/v1/transactions`, {
                 method: 'GET',
                 headers: {},
             });
@@ -25,7 +26,7 @@ function LatestTransaction() {
 
     useEffect(() => {
         fetchAccountInfo();
-    }, []); 
+    }, [apiEndpoint]); 
 
     const extractFields = (data :any) => {
         if (!data || !data.transactions || data.transactions.length === 0) return [];

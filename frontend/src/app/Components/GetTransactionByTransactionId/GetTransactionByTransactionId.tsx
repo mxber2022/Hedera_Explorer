@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import "./GetTransactionByTransactionId.css"
+import myconfig from '../../../myconfig.json';
+import { useNetwork } from '../NetworkContext/NetworkContext';
 
 interface Transfer {
     account: string;
@@ -24,11 +26,14 @@ interface GetTransactionByTransactionIdProps {
 }
 
 const GetTransactionByTransactionId: React.FC<GetTransactionByTransactionIdProps> = ({ id }) => {
+    const { isMainnet, toggleNetwork, apiEndpoint } = useNetwork();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     
     // Use useRef to store mutable data
     const dataRef = useRef<ApiResponse | null>(null);
+
+    console.log(apiEndpoint);
 
     useEffect(() => {
         async function fetchTransaction() {
@@ -36,7 +41,7 @@ const GetTransactionByTransactionId: React.FC<GetTransactionByTransactionIdProps
             setError(null); // Reset error state
             
             try {
-                const response = await fetch(`https://testnet.mirrornode.hedera.com/api/v1/transactions/${id}`, {
+                const response = await fetch(`${apiEndpoint}/api/v1/transactions/${id}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
