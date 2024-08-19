@@ -71,29 +71,32 @@ function HederaData() {
     
     return(  
         <div className="hedera-data">
-            <h1>HederaData</h1>
-            {HBARstatistics && supplyData ? (
-                <div>
-                    <h2>Latest HBAR Price</h2>
-                    {/* <p>
-                        Price: {parseFloat(HBARstatistics.parsed[0].price.price) * Math.pow(10, HBARstatistics.parsed[0].price.expo)} USD
-                    </p> */}
-                    <p>
-                        Price: {parseFloat(HBARstatistics.parsed[0].ema_price.price) * Math.pow(10, HBARstatistics.parsed[0].ema_price.expo)} USD
-                    </p>
-                    <p>
-                        Market Cap: {(parseFloat(HBARstatistics.parsed[0].price.price) * Math.pow(10, HBARstatistics.parsed[0].price.expo) * parseFloat(supplyData.released_supply) / Math.pow(10, 8)).toLocaleString()} USD
-                    </p>
-                    <p>
-                        Circulating Supply: {(parseFloat(supplyData.released_supply) / Math.pow(10, 8)).toLocaleString()} HBAR
-                    </p>
-                    <p>
-                        Publish Time: {new Date(HBARstatistics.parsed[0].price.publish_time * 1000).toLocaleString()}
-                    </p>
-                </div>
-            ) : (
-                <p>Loading HBAR statistics...</p>
-            )}
+            <div className="hedera-data__container">
+                <h2>LATEST HBAR TOKEN DATA</h2>
+                {HBARstatistics && supplyData ? (
+                    <div>
+                        {/* <p>
+                            Price: {parseFloat(HBARstatistics.parsed[0].price.price) * Math.pow(10, HBARstatistics.parsed[0].price.expo)} USD
+                        </p> */}
+                        <div className="hedera-data__card">
+                            <p>
+                                <strong>Price:</strong> {parseFloat(HBARstatistics.parsed[0].ema_price.price) * Math.pow(10, HBARstatistics.parsed[0].ema_price.expo)} USD
+                            </p>
+                            <p>
+                                <strong>Market Cap:</strong> {(parseFloat(HBARstatistics.parsed[0].price.price) * Math.pow(10, HBARstatistics.parsed[0].price.expo) * parseFloat(supplyData.released_supply) / Math.pow(10, 8)).toLocaleString()} USD
+                            </p>
+                            <p>
+                                <strong>Circulating Supply:</strong> {(parseFloat(supplyData.released_supply) / Math.pow(10, 8)).toLocaleString()} HBAR
+                            </p>
+                            <p>
+                                <strong>Publish Time:</strong> {new Date(HBARstatistics.parsed[0].price.publish_time * 1000).toLocaleString()}
+                            </p>
+                        </div>
+                    </div>
+                ) : (
+                    <p>Loading HBAR statistics...</p>
+                )}
+            </div>
         </div>  
     );
 }

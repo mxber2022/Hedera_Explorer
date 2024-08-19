@@ -1,0 +1,47 @@
+
+
+.hedera-data {
+
+    padding: 6rem 0;
+    background-color: #000;
+    color: #fff;
+}
+
+
+.hedera-data__container {
+
+    max-width: 1600px;
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+
+.hedera-data h2 {
+
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.hedera-data h3 {
+
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.hedera-data p {
+
+    color: #fff;
+}
+
+.hedera-data__card {
+
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
