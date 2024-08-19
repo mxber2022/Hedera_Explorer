@@ -35,31 +35,44 @@ function LatestTransaction() {
             name: tx.name || 'N/A',
             transaction_id: tx.transaction_id || 'N/A',
             node: tx.node || 'N/A',
+            result: tx.result || 'N/A'
         }));
     };
 
     // Render extracted data
     const fields = extractFields(transactionData);
+    console.log(transactionData);
 
     return (
         <section className="LatestTransaction">
-            <h1>Latest Transactions</h1>
-            {fields.length > 0 ? (
-                <ul className="transaction-list">
-                    {fields.map((tx :any, index: any) => (
-                        <li key={index} className="transaction-item">
-                            <div className="transaction-info">
-                                <p><strong>Entity ID:</strong> {tx.entity_id}</p>
-                                <p><strong>Name:</strong> {tx.name}</p>
-                                <p><strong>Node:</strong> {tx.node}</p>
-                            </div>
-                            <p><strong>Transaction ID:</strong> {tx.transaction_id}</p>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>Loading or no data available...</p>
-            )}
+            <div className='LatestTransaction__container'>
+                <h2>Latest Transactions</h2>
+                <div className='lt__lists'>
+                    <span>Entity ID</span>
+                    <span>Name</span>
+                    <span>Node</span>
+                    {/* <span>Result</span> */}
+                    <span>Transaction ID</span>
+
+                </div>
+                {fields.length > 0 ? (
+                    <ul className="transaction-list">
+                        {fields.map((tx :any, index: any) => (
+                            <li key={index} className="transaction-item">
+                                <div className="transaction-info">
+                                    <p>{tx.entity_id}</p>
+                                    <p>{tx.name}</p>
+                                    <p>{tx.node}</p>
+                                    {/* <p>{tx.result}</p> */}
+                                    <p>{tx.transaction_id}</p>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>Loading or no data available...</p>
+                )}
+            </div>
         </section>
     );
 }
