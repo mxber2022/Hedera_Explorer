@@ -67,7 +67,8 @@ const GetTransactionByTransactionId: React.FC<GetTransactionByTransactionIdProps
     if (!data || data.transactions.length === 0) return <div>No transaction data available.</div>;
 
     return (
-        <div>
+        <section className="LatestTransaction"> 
+        <div className='LatestTransaction__container'>
             <h2>Transaction Details</h2>
             {data.transactions.map((transaction: Transaction, index: number) => (
                 <div key={index} className="transaction-detail">
@@ -75,22 +76,34 @@ const GetTransactionByTransactionId: React.FC<GetTransactionByTransactionIdProps
                     <p><strong>Entity ID:</strong> {transaction.entity_id}</p>
                     <p><strong>Name:</strong> {transaction.name}</p>
                     <h4>Transfers</h4>
-                    <ul>
+
+                    <div className='lt__lists'>
+                    <span>Account</span>
+                    <span>Amount</span>
+                    <span>Approval</span>
+
+                </div>
+                    <ul className="transaction-list">
                         {transaction.transfers.length > 0 ? (
                             transaction.transfers.map((transfer, transferIndex) => (
-                                <li key={transferIndex}>
-                                    <p><strong>Account:</strong> {transfer.account}</p>
-                                    <p><strong>Amount:</strong> {transfer.amount}</p>
-                                    <p><strong>Approval:</strong> {transfer.is_approval ? 'Yes' : 'No'}</p>
+                                <li key={transferIndex} className="transaction-item">
+                                    <div className="transaction-info">
+                                    <p><strong></strong> {transfer.account}</p>
+                                    <p><strong></strong> {transfer.amount}</p>
+                                    <p><strong></strong> {transfer.is_approval ? 'Yes' : 'No'}</p>
+                                    </div>
                                 </li>
                             ))
                         ) : (
                             <p>No transfers available.</p>
                         )}
                     </ul>
+                    
                 </div>
+                
             ))}
         </div>
+        </section>
     );
 }
 

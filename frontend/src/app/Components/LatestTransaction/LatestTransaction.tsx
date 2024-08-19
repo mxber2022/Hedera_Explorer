@@ -44,7 +44,7 @@ function LatestTransaction() {
     console.log(transactionData);
 
     return (
-        <section className="LatestTransaction">
+        <section className="LatestTransaction"> 
             <div className='LatestTransaction__container'>
                 <h2>Latest Transactions</h2>
                 <div className='lt__lists'>
