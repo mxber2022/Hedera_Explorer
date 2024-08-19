@@ -75,6 +75,8 @@ wui-connect-button button {
 
 
 .nav__logo {
+    align-items: center;
+    display: flex;
     font-size: 32px;
     font-weight: 900;
     color: #fff;
@@ -89,4 +91,12 @@ wui-connect-button button {
     height: 3px;
     background-color: #e63946;
     transition: width 0.3s ease;
+}
+
+/* NetworkToggle.module.css */
+
+.logo {
+    height: 40px; /* Adjust height as needed */
+    width: auto;  /* Maintain aspect ratio */
+    margin-right: 8px;
 }
